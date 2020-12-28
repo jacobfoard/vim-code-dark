@@ -66,8 +66,8 @@ endif
 " (some of them may be unused)
 
 let s:cdNone = {'gui': 'NONE', 'cterm': 'NONE', 'cterm256': 'NONE'}
-let s:cdFront = {'gui': '#D4D4D4', 'cterm': s:cterm05, 'cterm256': '188'}
-let s:cdBack = {'gui': '#1E1E1E', 'cterm': s:cterm00, 'cterm256': '234'}
+let s:cdFront = {'gui': '#ffffff', 'cterm': s:cterm05, 'cterm256': '188'}
+let s:cdBack = {'gui': '#343a43', 'cterm': s:cterm00, 'cterm256': 'NONE'}
 
 let s:cdTabCurrent = {'gui': '#1E1E1E', 'cterm': s:cterm00, 'cterm256': '234'}
 let s:cdTabOther = {'gui': '#2D2D2D', 'cterm': s:cterm01, 'cterm256': '236'}
@@ -107,23 +107,23 @@ if !exists("g:codedark_conservative")
     let g:codedark_conservative=0
 endif
 
-let s:cdGray = {'gui': '#808080', 'cterm': s:cterm04, 'cterm256': '08'}
-let s:cdViolet = {'gui': '#646695', 'cterm': s:cterm04, 'cterm256': '60'}
-let s:cdBlue = {'gui': '#569CD6', 'cterm': s:cterm0D, 'cterm256': '75'}
-let s:cdDarkBlue = {'gui': '#223E55', 'cterm': s:cterm0D, 'cterm256': '73'}
-let s:cdLightBlue = {'gui': '#9CDCFE', 'cterm': s:cterm0C, 'cterm256': '117'}
+let s:cdGray = {'gui': '#586170', 'cterm': s:cterm04, 'cterm256': '08'}
+let s:cdViolet = {'gui': '#673ab7', 'cterm': s:cterm04, 'cterm256': '60'}
+let s:cdBlue = {'gui': '#0eb8f2', 'cterm': s:cterm0D, 'cterm256': '75'}
+let s:cdDarkBlue = {'gui': '#3d9cff', 'cterm': s:cterm0D, 'cterm256': '73'}
+let s:cdLightBlue = {'gui': '#48cae3', 'cterm': s:cterm0C, 'cterm256': '117'}
 if g:codedark_conservative | let s:cdLightBlue = s:cdFront | endif
-let s:cdGreen = {'gui': '#6A9955', 'cterm': s:cterm0B, 'cterm256': '65'}
+let s:cdGreen = {'gui': '#1eb608', 'cterm': s:cterm0B, 'cterm256': '65'}
 let s:cdBlueGreen = {'gui': '#4EC9B0', 'cterm': s:cterm0F, 'cterm256': '43'}
-let s:cdLightGreen = {'gui': '#B5CEA8', 'cterm': s:cterm09, 'cterm256': '151'}
-let s:cdRed = {'gui': '#F44747', 'cterm': s:cterm08, 'cterm256': '203'}
+let s:cdLightGreen = {'gui': '#47cb34' , 'cterm': s:cterm09, 'cterm256': '151'}
+let s:cdRed = {'gui': '#e70000', 'cterm': s:cterm08, 'cterm256': '203'}
 let s:cdOrange = {'gui': '#CE9178', 'cterm': s:cterm0F, 'cterm256': '173'}
 let s:cdLightRed = {'gui': '#D16969', 'cterm': s:cterm08, 'cterm256': '167'}
 if g:codedark_conservative | let s:cdLightRed = s:cdOrange | endif
 let s:cdYellowOrange = {'gui': '#D7BA7D', 'cterm': s:cterm0A, 'cterm256': '179'}
-let s:cdYellow = {'gui': '#DCDCAA', 'cterm': s:cterm0A, 'cterm256': '187'}
+let s:cdYellow = {'gui': '#e7cd3e', 'cterm': s:cterm0A, 'cterm256': '187'}
 if g:codedark_conservative | let s:cdYellow = s:cdFront | endif
-let s:cdPink = {'gui': '#C586C0', 'cterm': s:cterm0E, 'cterm256': '176'}
+let s:cdPink = {'gui': '#e9b9f7', 'cterm': s:cterm0E, 'cterm256': '176'}
 if g:codedark_conservative | let s:cdPink = s:cdBlue | endif
 
 " Vim editor colors
@@ -174,10 +174,10 @@ hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
 
-call <sid>hi('Comment', s:cdGreen, {}, 'none', {})
+call <sid>hi('Comment', s:cdLightGreen, {}, 'italic', {})
 
 call <sid>hi('Constant', s:cdBlue, {}, 'none', {})
-call <sid>hi('String', s:cdOrange, {}, 'none', {})
+call <sid>hi('String', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('Character', s:cdOrange, {}, 'none', {})
 call <sid>hi('Number', s:cdLightGreen, {}, 'none', {})
 call <sid>hi('Boolean', s:cdBlue, {}, 'none', {})
@@ -187,7 +187,7 @@ call <sid>hi('Identifier', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('Function', s:cdYellow, {}, 'none', {})
 
 call <sid>hi('Statement', s:cdPink, {}, 'none', {})
-call <sid>hi('Conditional', s:cdPink, {}, 'none', {})
+call <sid>hi('Conditional', s:cdPink, {}, 'italic', {})
 call <sid>hi('Repeat', s:cdPink, {}, 'none', {})
 call <sid>hi('Label', s:cdPink, {}, 'none', {})
 call <sid>hi('Operator', s:cdFront, {}, 'none', {})
@@ -226,49 +226,48 @@ call <sid>hi('SpellCap', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 call <sid>hi('SpellRare', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 call <sid>hi('SpellLocal', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
-
 " Neovim Treesitter:
 call <sid>hi('TSError', s:cdRed, {}, 'none', {})
 call <sid>hi('TSPunctDelimiter', s:cdFront, {}, 'none', {})
 call <sid>hi('TSPunctBracket', s:cdFront, {}, 'none', {})
 call <sid>hi('TSPunctSpecial', s:cdFront, {}, 'none', {})
 " Constant
-call <sid>hi('TSConstant', s:cdYellow, {}, 'none', {})
-call <sid>hi('TSConstBuiltin', s:cdBlue, {}, 'none', {})
-call <sid>hi('TSConstMacro', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('TSStringRegex', s:cdOrange, {}, 'none', {})
-call <sid>hi('TSString', s:cdOrange, {}, 'none', {})
-call <sid>hi('TSStringEscape', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('TSCharacter', s:cdOrange, {}, 'none', {})
-call <sid>hi('TSNumber', s:cdLightGreen, {}, 'none', {})
+call <sid>hi('TSConstant', s:cdYellow, {}, 'italic', {})
+call <sid>hi('TSConstBuiltin', s:cdYellow, {}, 'italic', {})
+call <sid>hi('TSConstMacro', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('TSStringRegex', s:cdYellow, {}, 'none', {})
+call <sid>hi('TSString', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('TSStringEscape', s:cdYellow, {}, 'none', {})
+call <sid>hi('TSCharacter', s:cdGreen, {}, 'none', {})
+call <sid>hi('TSNumber', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('TSBoolean', s:cdBlue, {}, 'none', {})
-call <sid>hi('TSFloat', s:cdLightGreen, {}, 'none', {})
+call <sid>hi('TSFloat', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('TSAnnotation', s:cdYellow, {}, 'none', {})
 call <sid>hi('TSAttribute', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('TSNamespace', s:cdBlueGreen, {}, 'none', {})
 " Functions
-call <sid>hi('TSFuncBuiltin', s:cdYellow, {}, 'none', {})
+call <sid>hi('TSFuncBuiltin', s:cdBlue, {}, 'none', {})
 call <sid>hi('TSFunction', s:cdYellow, {}, 'none', {})
-call <sid>hi('TSFuncMacro', s:cdYellow, {}, 'none', {})
-call <sid>hi('TSParameter', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('TSFuncMacro', s:cdBlue, {}, 'none', {})
+call <sid>hi('TSParameter', s:cdLightBlue, {}, 'italic', {})
 call <sid>hi('TSParameterReference', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('TSMethod', s:cdYellow, {}, 'none', {})
-call <sid>hi('TSField', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('TSProperty', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('TSConstructor', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('TSField', s:cdBlue, {}, 'none', {})
+call <sid>hi('TSProperty', s:cdFront, {}, 'none', {})
+call <sid>hi('TSConstructor', s:cdFront, {}, 'none', {})
 " Keywords
-call <sid>hi('TSConditional', s:cdPink, {}, 'none', {})
-call <sid>hi('TSRepeat', s:cdPink, {}, 'none', {})
-call <sid>hi('TSLabel', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('TSKeyword', s:cdBlue, {}, 'none', {})
+call <sid>hi('TSConditional', s:cdLightBlue, {}, 'italic', {})
+call <sid>hi('TSRepeat', s:cdViolet, {}, 'none', {})
+call <sid>hi('TSLabel', s:cdViolet, {}, 'none', {})
+call <sid>hi('TSKeyword', s:cdDarkBlue, {}, 'none', {})
 call <sid>hi('TSKeywordFunction', s:cdPink, {}, 'none', {})
 call <sid>hi('TSKeywordOperator', s:cdBlue, {}, 'none', {})
 call <sid>hi('TSOperator', s:cdFront, {}, 'none', {})
-call <sid>hi('TSException', s:cdPink, {}, 'none', {})
-call <sid>hi('TSType', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('TSTypeBuiltin', s:cdBlue, {}, 'none', {})
-call <sid>hi('TSStructure', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('TSInclude', s:cdPink, {}, 'none', {})
+call <sid>hi('TSException', s:cdViolet, {}, 'none', {})
+call <sid>hi('TSType', s:cdLightBlue, {}, 'italic', {})
+call <sid>hi('TSTypeBuiltin', s:cdBlue, {}, 'italic', {})
+call <sid>hi('TSStructure', s:cdRed, {}, 'italic', {})
+call <sid>hi('TSInclude', s:cdYellow, {}, 'italic', {})
 " Variable
 call <sid>hi('TSVariable', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('TSVariableBuiltin', s:cdLightBlue, {}, 'none', {})
@@ -282,7 +281,7 @@ call <sid>hi('TSLiteral', s:cdYellowOrange, {}, 'none', {})
 call <sid>hi('TSURI', s:cdYellowOrange, {}, 'none', {})
 " Tags
 call <sid>hi('TSTag', s:cdBlue, {}, 'none', {})
-call <sid>hi('TSTagDelimiter', s:cdGray, {}, 'none', {})
+call <sid>hi('TSTagDelimiter', s:cdViolet, {}, 'none', {})
 
 " Markdown:
 call <sid>hi('markdownBold', s:cdBlue, {}, 'bold', {})
@@ -469,27 +468,27 @@ call <sid>hi('rubyConstant', s:cdBlueGreen, {}, 'none', {})
 
 " Golang:
 call <sid>hi('goPackage', s:cdBlue, {}, 'none', {})
-call <sid>hi('goImport', s:cdBlue, {}, 'none', {})
-call <sid>hi('goVar', s:cdBlue, {}, 'none', {})
-call <sid>hi('goConst', s:cdBlue, {}, 'none', {})
-call <sid>hi('goStatement', s:cdPink, {}, 'none', {})
-call <sid>hi('goType', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('goImport', s:cdYellow, {}, 'italic', {})
+call <sid>hi('goVar', s:cdYellow, {}, 'italic', {})
+call <sid>hi('goConst', s:cdYellow, {}, 'italic', {})
+call <sid>hi('goStatement', s:cdPink, {}, 'bold', {})
 call <sid>hi('goSignedInts', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('goType', s:cdLightBlue, {}, 'italic', {})
 call <sid>hi('goUnsignedInts', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('goFloats', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('goComplexes', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('goBuiltins', s:cdYellow, {}, 'none', {})
-call <sid>hi('goBoolean', s:cdBlue, {}, 'none', {})
-call <sid>hi('goPredefinedIdentifiers', s:cdBlue, {}, 'none', {})
+call <sid>hi('goBuiltins', s:cdRed, {}, 'bold', {})
+call <sid>hi('goBoolean', s:cdBlue, {}, 'italic', {})
+call <sid>hi('goPredefinedIdentifiers', s:cdYellow, {}, 'italic', {})
 call <sid>hi('goTodo', s:cdGreen, {}, 'none', {})
-call <sid>hi('goDeclaration', s:cdBlue, {}, 'none', {})
-call <sid>hi('goDeclType', s:cdBlue, {}, 'none', {})
-call <sid>hi('goTypeDecl', s:cdBlue, {}, 'none', {})
+call <sid>hi('goDeclaration', s:cdBlue, {}, 'italic', {})
+call <sid>hi('goDeclType', s:cdBlue, {}, 'italic', {})
+call <sid>hi('goTypeDecl', s:cdBlue, {}, 'italic', {})
 call <sid>hi('goTypeName', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('goVarAssign', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('goVarDefs', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('goVarAssign', s:cdDarkBlue, {}, 'none', {})
+call <sid>hi('goVarDefs', s:cdDarkBlue, {}, 'none', {})
 call <sid>hi('goReceiver', s:cdFront, {}, 'none', {})
-call <sid>hi('goReceiverType', s:cdFront, {}, 'none', {})
+call <sid>hi('goReceiverType', s:cdLightBlue, {}, 'italic', {})
 call <sid>hi('goFunctionCall', s:cdYellow, {}, 'none', {})
 call <sid>hi('goMethodCall', s:cdYellow, {}, 'none', {})
 call <sid>hi('goSingleDecl', s:cdLightBlue, {}, 'none', {})
@@ -551,3 +550,5 @@ call <sid>hi('yamlConstant', s:cdBlue, {}, 'none', {})
 
 " Coc Explorer:
 call <sid>hi('CocExplorerIndentLine', s:cdCursorDark, {}, 'none', {})
+
+call <sid>hi('Blamer',  s:cdGray, {}, 'none', {})
