@@ -258,7 +258,7 @@ call <sid>hi('TSConstructor', s:cdFront, {}, 'none', {})
 " Keywords
 call <sid>hi('TSConditional', s:cdLightBlue, {}, 'italic', {})
 call <sid>hi('TSRepeat', s:cdViolet, {}, 'none', {})
-call <sid>hi('TSLabel', s:cdViolet, {}, 'none', {})
+call <sid>hi('TSLabel', s:cdYellow, {}, 'none', {})
 call <sid>hi('TSKeyword', s:cdDarkBlue, {}, 'none', {})
 call <sid>hi('TSKeywordFunction', s:cdPink, {}, 'none', {})
 call <sid>hi('TSKeywordOperator', s:cdBlue, {}, 'none', {})
